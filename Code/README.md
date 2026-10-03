@@ -1,0 +1,87 @@
+
+# QuRe: Query-Relevant Retrieval through Hard Negative Sampling in Composed Image Retrieval [ICML 2025]
+
+Official implementation of **QuRe: Query-Relevant Retrieval through Hard Negative Sampling in Composed Image Retrieval** (*ICML 2025*).  
+[[Paper Link]](https://arxiv.org/abs/2507.12416)
+
+
+## Python Environment
+
+
+The following commands set up a local Anaconda environment and install the required packages:
+
+    conda env create -f environment.yml -n qure
+
+
+
+## Prepare Datasets 
+Before running the code, please download the following datasets:
+
+- [FashionIQ](https://drive.google.com/drive/folders/17WgyAkiTb21y8BdTNJptyfEm4wjk4FPx?usp=drive_link)
+- [CIRR](https://drive.google.com/drive/folders/17WgyAkiTb21y8BdTNJptyfEm4wjk4FPx?usp=drive_link)
+- [CIRCO](https://github.com/miccunifi/CIRCO)
+- [HP-FashionIQ](https://github.com/jackwaky/QuRe/tree/main/HP_FashionIQ)
+
+For FashionIQ, set `fashioniq_root` in the JSON config to the directory that
+contains `captions/`, `image_splits/`, and `images/`. The path is no longer
+hard-coded in `data/fashionIQ.py`.
+    
+
+
+## Training
+
+To train the model on FashionIQ and CIRR datasets, use the following commands:
+
+**For FashionIQ:**
+```bash
+python train_qure.py --config_path=configs/fashionIQ/train.json
+```
+
+`configs/fashionIQ/train.json` is the two-adapter QuRe-LoRA run: one shared
+Q-Former, frozen BLIP2 base weights, trainable query tokens, and separate
+`reference`/`candidate` LoRA branches. The Kaggle workflow is documented in
+[`KAGGLE_TRAINING.md`](KAGGLE_TRAINING.md).
+
+**For CIRR:**
+```bash
+python train_qure.py --config_path=configs/cirr/train.json
+```
+
+## Evaluation
+
+To test the model on FashionIQ, CIRR, and CIRCO datasets, use the following commands:
+
+**For FashionIQ:**
+```bash
+python evaluate_qure/evaluate_fiq.py --config_path=configs/fashionIQ/eval.json
+```
+
+**For CIRR:**
+```bash
+python evaluate_qure/evaluate_cirr.py --config_path=configs/cirr/eval.json
+```
+
+**For CIRCO:**
+```bash
+python evaluate_qure/evaluate_circo.py --config_path=configs/circo/eval.json
+```
+
+## Checkpoints
+
+We provide pre-trained checkpoints for both the FashionIQ and CIRR datasets.  
+You can download them from the [link](https://drive.google.com/drive/folders/1tEMZ4wcriZOQZNsXdo5R5IiLOud3ecph?usp=drive_link).
+
+
+## Acknowledgment
+This code is built on top of the [CoSMo](https://github.com/postBG/CosMo.pytorch) and utilizes [LAVIS](https://github.com/salesforce/LAVIS).
+We thank the authors for their valuable contribution.
+
+## Citation
+
+```bibtex
+@inproceedings{kwakqure,
+  title={QuRe: Query-Relevant Retrieval through Hard Negative Sampling in Composed Image Retrieval},
+  author={Kwak, Jaehyun and Inhar, Ramahdani Muhammad Izaaz and Yun, Se-Young and Lee, Sung-Ju},
+  booktitle={Forty-second International Conference on Machine Learning}
+}
+```

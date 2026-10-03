@@ -1,0 +1,8 @@
+# Ignore model checkpoints & cache
+Code/checkpoints/
+*.pth
+*.safetensors
+*.bin
+*.pt
+*.onnx
+hf_cache/
