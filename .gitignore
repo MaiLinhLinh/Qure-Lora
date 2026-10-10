@@ -1,8 +1,25 @@
 # Ignore model checkpoints & cache
 Code/checkpoints/
+Chay_Thu_Lora/Code-ablation/checkpoints/
+Chay_Thu_Lora/Code-ablation/runs/
+Chay_Thu_Lora/Code-ablation/logs/
+Chay_Thu_Lora/fashing_iq/
+
+# Python/editor/generated files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+*.log
+
+# Local model/download cache
+hf_cache/
+**/hf_cache/
+
+# Model files
 *.pth
 *.safetensors
 *.bin
 *.pt
 *.onnx
-hf_cache/

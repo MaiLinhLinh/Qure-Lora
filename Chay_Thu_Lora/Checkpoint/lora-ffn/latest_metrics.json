@@ -1,0 +1,17 @@
+{
+  "loss": 0.09411898259099911,
+  "lr": 1e-06,
+  "lr_lora": 1e-06,
+  "lr_task": 5e-08,
+  "epoch": 30,
+  "global_step": 67500,
+  "fashionIQ_dress_recall@10": 46.554288268089294,
+  "fashionIQ_dress_recall@50": 69.31085586547852,
+  "fashionIQ_shirt_recall@10": 51.42296552658081,
+  "fashionIQ_shirt_recall@50": 71.14818692207336,
+  "fashionIQ_toptee_recall@10": 55.48189878463745,
+  "fashionIQ_toptee_recall@50": 76.33860111236572,
+  "average_recall_at10": 51.15305085976919,
+  "average_recall_at50": 72.26588129997253,
+  "average_recall": 61.709466079870865
+}
