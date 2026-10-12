@@ -17,6 +17,14 @@ __pycache__/
 hf_cache/
 **/hf_cache/
 
+# Qure-Lora-v2 generated training artifacts and local downloads
+Qure-Lora-v2/checkpoints/
+Qure-Lora-v2/runs/
+Qure-Lora-v2/logs/
+Qure-Lora-v2/wandb/
+Qure-Lora-v2/.wandb/
+Qure-Lora-v2/.cache/
+
 # Model files
 *.pth
 *.safetensors
